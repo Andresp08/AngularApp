@@ -1,0 +1,38 @@
+<!--le paso un pipe para hacer el nombre mayuscula-->
+<h1 class="text-center mt-3">{{heroe.nombre | uppercase}}</h1>
+
+<!--le paso el pipe (date) con el parametro (y) para que muestre el año-->
+<h2 class="text-center text-muted display-5"><span class="text-center">{{heroe.aparicion | date:'y'}}</span></h2>
+<hr>
+
+<div class="row">
+    <div class="col-md-4">
+        <img [src]="heroe.img" [alt]="heroe.nombre" class="img-fluid img-rounded">
+
+        <!--le paso la funcion RegresarAHeroes() que contiene una ruta para que no haga refresh del navegador-->
+        <button (click)="RegresarAHeroes() " type="button " class="btn btn-outline-danger btn-block mt-3 ">Regresar</button>
+    </div>
+    <!--col-->
+    <div class="col-md-8">
+        <h3 class="text-center">{{heroe.nombre}}</h3>
+        <hr>
+        <p class="text-justify">
+            {{heroe.bio}}
+        </p>
+        <!--si es Marvel llamo a la variable, si no pongo la otra img -->
+        <div class="text-center">
+            <img *ngIf="verificarImg" src=" ../../../assets/img/DC.png " alt="DC " class="img-fluid ">
+            <img *ngIf="verificarImg == false" src="../../../assets/img/marvel.png" alt="Marvel" class="img-fluid">
+        </div>
+
+        <!-- otra forma sencilla de haberlo hecho sin js es asi como lo hizo fer-->
+        <!-- <div class="">
+            <img *ngIf="heroe.casa=='DC'" src=" ../../../assets/img/DC.png " alt="DC " class="img-fluid ">
+            <img *ngIf="heroe.casa=='DC'" src="../../../assets/img/marvel.png" alt="Marvel" class="img-fluid">
+        </div> -->
+
+
+    </div>
+    <!--col-->
+</div>
+<!--row-->

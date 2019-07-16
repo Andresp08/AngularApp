@@ -1,0 +1,17 @@
+<h1 class="text-center mt-3">Heroes <span class="text-muted">Marvel y DC</span></h1>
+<hr>
+
+<div class="card-columns">
+    <!--ngFor para recorrer el arrreglo de Heroes-->
+    <!--(heroes) es la variable local del heroes.component-->
+
+    <!--*ngFor="let heroe of heroes; let i = index-->
+    <!--usar el componente creado en heroe.tarjeta que es el que contiene una tarjeta basicamente-->
+
+    <!--como en el heroe-tarjeta-component.ts puse que iba a ser @input, desde acá puede inicializar ese objeto, solo pongo el nombre del mismo en llaves [ ] y le envio el personaje que es del ciclo for-->
+    <!--igualmente le envio el indice al @Input index en horoe-tarjeta-->
+
+    <!--cuando yo hago click en el (heroeSeleccionado) eso manda a llamar a la funcion ver heroe() de heroes.component.ts, esa funcion es llamada a traves de un @Output desde el heroe-tarjeta.component , entonces el (heroeSeleccionado) emite un this.indice en la tarjeta, posteriormente acá abajo estoy llamando el (heroeSeleccionado) y lo hago igual a verHeroe(), ese ver heroe es del heroes.component.ts que recibe un index, pero como yo ya emiti en index en el heroe.tarjeta, para enviarselo lo hago a traves de ($event) y esa funcion es la que muestra el heroe como tal-->
+    <app-heroe-tarjeta (heroeSeleccionado)="verHeroe($event)" [heroe]="personaje" [indice]="i" *ngFor="let personaje of heroes; let i = index"></app-heroe-tarjeta>
+
+</div>

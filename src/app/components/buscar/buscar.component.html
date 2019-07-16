@@ -1,0 +1,41 @@
+<h1 class="text-center mt-3">Buscando: <span class="text-muted">{{termino}}</span></h1>
+<hr>
+
+<!--Mostar el mensaje de que no hay resultados-->
+<div class="row" *ngIf="heroes.length == 0">
+    <div class="col">
+        <div class="alert alert-info text-center" role="alerta">
+            No existen resultados con el termino: {{termino}}
+        </div>
+    </div>
+</div>
+
+<div class="card-columns">
+    <!--ngFor para recorrer el arrreglo de Heroes-->
+    <!--(heroes) es la variable local del heroes.component-->
+
+    <!--
+    <div class="card animated fadeIn fast" *ngFor="let heroe of heroes; let i = index">
+
+        el src en llaves para decirle que eso lo va a manejar angular, y asi no hacer la interpolacion
+        <img [src]="heroe.img" class="card-img-top" [alt]="heroe.nombre">
+
+        <div class="card-body">t
+            <h5 class="card-title text-center mb-2">{{ heroe.nombre }}</h5>
+            <p class="card-text text-justify">{{ heroe.bio }}</p>
+            <p class="card-text text-center"><small class="text-muted">{{ heroe.aparicion }}</small></p>
+
+            uso la funcion click para desde el ts decirle que hacer a traves de la function, recibe un index, que es el (i) del ngFOr
+            <button (click)="verHeroe(i)" type="button" class="btn btn-outline-danger btn-block">Ver Más</button>
+
+            <le envio esto porque va la ruta que es heroe, y el id, que vendria siendo en este caso la posicion del arreglo, donde se encuentra el heroe, la (i) viene del ngFor
+            con el slash evitamos un incoveniente cualquiera con la ruta
+            <a [routerLink]="['/heroe', i]" class="btn btn-outline-danger btn-block">
+                Ver Más
+            </a>
+        </div>
+    </div>-->
+
+    <!--persona.index porque personaje es la variable de tipo heroes, osea del servicio, (data) y alla en la interfaz tenemos una propieda opcional que es el index, por eso el persona.index, que trae el indice propio del heroe, para que no hayan problemas al mostrar cada uno en la busqueda-->
+    <app-heroe-tarjeta *ngFor="let personaje of heroes" [heroe]="personaje" [indice]="personaje.index"></app-heroe-tarjeta>
+</div>

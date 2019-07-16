@@ -1,0 +1,34 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+
+    <a class="navbar-brand" href="#">
+        <img src="assets/img/A-64.png" width="30" height="30" alt="">
+    </a>
+
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" [routerLink]="['home']" routerLinkActive="active">Home<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" [routerLink]="['heroes']" routerLinkActive="active">Heroes</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" [routerLink]="['about']" routerLinkActive="active">About</a>
+            </li>
+        </ul>
+        <!--formulario-->
+        <div class="form-inline my-2 my-lg-0">
+            <!--le pongo un alias para identificar al btn con angular (#buscarTexto) que sirve para hacer referencia al boton, luego con el evento enter le paso una funcion () que recibe el alias del btn (buscarTexto.value), es decir el texto que se debe bucar-->
+            <input class="form-control mr-sm-2" type="text" placeholder="Buscar Heroe" (keyup.enter)="buscarHeroe(buscarTexto.value)" #buscarTexto>
+            <!--lo mismo con el click del mouse-->
+            <button (click)="buscarHeroe(buscarTexto.value)" class="btn btn-outline-success my-2 my-sm-0" type="button">Buscar Heroe
+            </button>
+        </div>
+    </div>
+</nav>
